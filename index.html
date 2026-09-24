@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nilam! 🎉 | Secret Birthday Portal</title>
+    <meta name="description" content="A breathtaking, interactive birthday celebration website created with love for Nilam!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Canvas Background Confetti Overlay -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Floating Balloons Background Container -->
+    <div id="balloons-container" class="balloons-container"></div>
+
+    <!-- Ambient Faint Blue Glow Background Elements -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- ==========================================================================
+         SECRET LOGIN / PASSCODE GATE SCREEN
+         ========================================================================== -->
+    <div id="login-gate" class="login-gate-overlay">
+        <div class="login-card glass-panel">
+            <div class="login-gif-wrapper">
+                <img src="assets/Pembe The Pink Cat GIF by Pembe.gif" alt="Cute Celebration GIF" class="login-cat-gif">
+            </div>
+            
+            <div class="login-header text-center">
+                <div class="login-badge"><i class="fa-solid fa-sparkles"></i> A little surprise for you</div>
+                <h1 class="login-title">Nilam's Birthday Gate 🎉</h1>
+                <p class="login-subtitle">Enter Nilam's name to unlock her secret birthday surprise!</p>
+            </div>
+
+            <form id="login-form" class="login-form">
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-key input-icon"></i>
+                    <input type="text" id="passcode-input" placeholder="Enter your name" autocomplete="off" autocapitalize="none" spellcheck="false" required autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block pulse-glow">
+                    Unlock Birthday Surprise 🎁
+                </button>
+            </form>
+
+            <div id="login-error" class="login-error hidden">
+                <i class="fa-solid fa-circle-exclamation"></i> Type <strong>"nilam"</strong> to unlock the party! 💖
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         MAIN UNLOCKED WEBSITE CONTENT
+         ========================================================================== -->
+    <div id="main-website" class="main-website hidden">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="#hero" class="nav-logo">
+                    <span class="logo-icon">🎂</span>
+                    <span class="logo-text">Happy B'day Nilam</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#cake-section" class="nav-link">Blow Candles</a></li>
+                    <li><a href="#wish-card" class="nav-link">Letter</a></li>
+                    <li><a href="#gallery" class="nav-link">Photos</a></li>
+                    <li><a href="#video-section" class="nav-link">Video Reel</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            
+            <!-- HERO SECTION -->
+            <section id="hero" class="hero-section">
+                
+                <div class="hero-container">
+                    
+                    <!-- Top Celebratory GIF Banner -->
+                    <div class="hero-gif-banner">
+                        <img src="assets/Pembe The Pink Cat GIF by Pembe.gif" alt="Celebrating Cat GIF" class="hero-gif-img">
+                        <span class="hero-gif-badge">✨ Party Time! ✨</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Happy Birthday, <span class="highlight-name">Nilam!</span> 🎉
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        To the most radiant, graceful, and beautiful birthday queen! Wishing you a day filled with magic, endless laughter, and boundless joy! 💖🌸
+                    </p>
+
+                    <!-- Featured Full Frame Showcase Photo Frame -->
+                    <div class="hero-photo-showcase glass-card">
+                        <div class="showcase-header">
+                            <span class="showcase-tag"><i class="fa-solid fa-crown"></i> Radiant & Beautiful Queen</span>
+                        </div>
+                        <div class="showcase-img-frame">
+                            <img src="assets/nilam_main_pic.png" alt="Nilam Birthday Showcase" class="hero-full-photo" id="hero-profile-img">
+                        </div>
+                        <div class="showcase-caption">
+                            <h3>Stunning Nilam ✨</h3>
+                            <p>May your bright beauty and contagious smile shine forever!</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Navigation Buttons -->
+                    <div class="hero-actions">
+                        <a href="#cake-section" id="celebrate-btn" class="btn btn-gold pulse-glow">
+                            <i class="fa-solid fa-cake-candles"></i> Blow Cake Candles 🎂
+                        </a>
+                        <a href="#wish-card" class="btn btn-primary">
+                            <i class="fa-solid fa-envelope-open-text"></i> Read Birthday Letter 💌
+                        </a>
+                        <a href="#video-section" class="btn btn-secondary">
+                            <i class="fa-solid fa-circle-play"></i> Watch Video Reel 🎥
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 1. BLOW OUT THE CANDLES & MAKE A WISH SECTION -->
+            <section id="cake-section" class="section cake-section text-center">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">🎂 Interactive Celebration</span>
+                    <h2 class="section-title">Blow the Candles & Make a Wish!</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-desc">Tap the button below to blow out the candles and make a birthday wish!</p>
+                </div>
+
+                <div class="cake-display-container">
+                    <div class="cake-box">
+                        <!-- Candle Flames -->
+                        <div class="candles-wrapper">
+                            <div class="candle" id="candle-1">
+                                <div class="flame" id="flame-1"></div>
+                                <div class="smoke" id="smoke-1"></div>
+                            </div>
+                            <div class="candle" id="candle-2">
+                                <div class="flame" id="flame-2"></div>
+                                <div class="smoke" id="smoke-2"></div>
+                            </div>
+                            <div class="candle" id="candle-3">
+                                <div class="flame" id="flame-3"></div>
+                                <div class="smoke" id="smoke-3"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cake Graphic -->
+                        <div class="cake-top"></div>
+                        <div class="cake-middle"></div>
+                        <div class="cake-bottom"></div>
+                        <div class="cake-plate"></div>
+                    </div>
+
+                    <div class="cake-actions">
+                        <button id="blow-candles-btn" class="btn btn-gold pulse-glow">
+                            <i class="fa-solid fa-wind"></i> Click to Blow Out Candles! 🕯️
+                        </button>
+                        <div id="cake-wish-message" class="cake-wish-result hidden">
+                            <div class="wish-sparkle-icon">✨ 🥳 ✨</div>
+                            <h3>Your Wish is Granted, Nilam! 🌟</h3>
+                            <p>May your year ahead be filled with eternal beauty, prosperity, and endless joy!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. PERSONALIZED BIRTHDAY LETTER SECTION -->
+            <section id="wish-card" class="section wish-card-section">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">💌 Personalized Message</span>
+                    <h2 class="section-title">Nilam's Birthday Wish Letter</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-desc">Tap or click the envelope below to open your birthday letter!</p>
+                </div>
+
+                <div class="card-3d-wrapper">
+                    <div id="interactive-card" class="flip-card">
+                        
+                        <!-- FRONT SIDE OF ENVELOPE CARD -->
+                        <div class="flip-card-front glass-card">
+                            <div class="card-ribbon"></div>
+                            <div class="wax-seal">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <div class="card-front-content">
+                                <span class="recipient-tag">To: Beautiful Nilam 🌸</span>
+                                <h3 class="card-front-title">A Special Letter Inside ✨</h3>
+                                <p class="card-front-subtitle">Tap to unseal & read your birthday note 🎁</p>
+                                <button class="open-card-btn">
+                                    Open Letter <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- INSIDE OF LETTER -->
+                        <div class="flip-card-back glass-card">
+                            <button class="close-card-btn" title="Close Card">&times;</button>
+                            <div class="card-letter-content">
+                                <div class="letter-header">
+                                    <span class="letter-date">September 25th 🌸</span>
+                                    <h2>Dearest Beautiful Nilam,</h2>
+                                </div>
+                                <div class="letter-body">
+                                    <p>
+                                        On your special birthday, I wanted to take a moment to celebrate how wonderful, gorgeous, and glowing you are! 🌟
+                                    </p>
+                                    <p>
+                                        Your stunning beauty, kind heart, and joyful spirit bring so much warmth to everyone around you. You deserve all the happiness in the universe!
+                                    </p>
+                                    <p>
+                                        May this new year bring you glowing health, thrilling successes, endless reasons to smile, and cherished memories. Keep shining like the true star you are! 💖✨
+                                    </p>
+                                </div>
+                                <div class="letter-footer">
+                                    <span class="signature-title">With admiration & love,</span>
+                                    <span class="signature-handwritten">Your Best Wishes 🥂</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. PHOTO MEMORIES GALLERY -->
+            <section id="gallery" class="section gallery-section">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">📸 Captured Smiles & Beauty</span>
+                    <h2 class="section-title">Nilam's Photo Gallery</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-desc">Click any picture to expand and view in full size!</p>
+                </div>
+
+                <div class="gallery-grid">
+                    
+                    <!-- Photo Card 1 (Main Collage) -->
+                    <div class="polaroid-card glass-card" data-caption="Radiant Queen Nilam ✨">
+                        <div class="polaroid-img-box">
+                            <img src="assets/nilam_main_pic.png" alt="Nilam Photo 1" loading="lazy">
+                            <div class="polaroid-overlay">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">
+                            <h3>Radiant Queen Nilam ✨</h3>
+                            <p>Stunning grace and beautiful smiles!</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo Card 2 (WhatsApp Image 1) -->
+                    <div class="polaroid-card glass-card" data-caption="Elegance & Beauty 🌸">
+                        <div class="polaroid-img-box">
+                            <img src="assets/WhatsApp Image 2026-09-24 at 7.14.54 PM.jpeg" alt="Nilam Photo 2" loading="lazy">
+                            <div class="polaroid-overlay">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">
+                            <h3>Elegance & Beauty 🌸</h3>
+                            <p>Timeless charm and traditional elegance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo Card 3 (WhatsApp Image 2) -->
+                    <div class="polaroid-card glass-card" data-caption="Glowing Smile 💖">
+                        <div class="polaroid-img-box">
+                            <img src="assets/WhatsApp Image 2026-09-24 at 7.14.55 PM.jpeg" alt="Nilam Photo 3" loading="lazy">
+                            <div class="polaroid-overlay">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">
+                            <h3>Glowing Smile 💖</h3>
+                            <p>A smile that brightens up the world.</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo Card 4 (WhatsApp Image 3) -->
+                    <div class="polaroid-card glass-card" data-caption="Charming & Stylish 🌟">
+                        <div class="polaroid-img-box">
+                            <img src="assets/WhatsApp Image 2026-09-24 at 8.38.13 PM.jpeg" alt="Nilam Photo 4" loading="lazy">
+                            <div class="polaroid-overlay">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">
+                            <h3>Charming & Stylish 🌟</h3>
+                            <p>Always graceful, bright and beautiful!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 4. FEATURED VIDEO REEL SECTION -->
+            <section id="video-section" class="section video-section">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">🎥 Special Celebration Video</span>
+                    <h2 class="section-title">Nilam's Video Reel</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-desc">Turn up the volume and enjoy this special video clip!</p>
+                </div>
+
+                <div class="video-container-wrapper">
+                    <div class="video-glow-backdrop"></div>
+                    <div class="video-card glass-panel">
+                        <div class="video-header-bar">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="video-bar-title"><i class="fa-solid fa-film"></i> Celebration Reel for Nilam</div>
+                        </div>
+
+                        <div class="video-media-frame">
+                            <video id="birthday-video" controls poster="assets/nilam_main_pic.png" preload="metadata">
+                                <source src="assets/VN20260924_235119.mp4" type="video/mp4">
+                                Your browser does not support playing this birthday video clip.
+                            </video>
+                            <button id="custom-play-overlay" class="play-overlay-btn" aria-label="Play Video">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+
+                        <div class="video-footer-info">
+                            <div class="video-caption">
+                                <i class="fa-solid fa-heart text-cyan"></i> <strong>Special Birthday Reel for Nilam</strong> — Tap to play!
+                            </div>
+                            <div class="video-controls-extra">
+                                <button id="fullscreen-video-btn" class="icon-btn-small" title="Watch Fullscreen">
+                                    <i class="fa-solid fa-expand"></i> Fullscreen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR PHOTO GALLERY -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged photo">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
